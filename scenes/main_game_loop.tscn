@@ -2,123 +2,150 @@
 
 [node name="MainGameLoop" type="CanvasLayer"]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MainGameSectionsVBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+
+[node name="HeadingPanelContainer" type="PanelContainer" parent="MainGameSectionsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainGameSectionsVBoxContainer/HeadingPanelContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="MainGameSectionsVBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="HeadingPanelContainer" type="PanelContainer" parent="MarginContainer/MainGameSectionsVBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/MainGameSectionsVBoxContainer/HeadingPanelContainer"]
+[node name="GridContainer" type="GridContainer" parent="MainGameSectionsVBoxContainer/HeadingPanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/h_separation = 102
 columns = 4
 
-[node name="CapitalLabel" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/HeadingPanelContainer/GridContainer"]
+[node name="CapitalLabel" type="Label" parent="MainGameSectionsVBoxContainer/HeadingPanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "$1000000.00"
 
-[node name="IncomeLabel" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/HeadingPanelContainer/GridContainer"]
+[node name="IncomeLabel" type="Label" parent="MainGameSectionsVBoxContainer/HeadingPanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "$5000.00"
 
-[node name="ExpensesLabel" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/HeadingPanelContainer/GridContainer"]
+[node name="ExpensesLabel" type="Label" parent="MainGameSectionsVBoxContainer/HeadingPanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "$4000.00"
 
-[node name="DateLabel" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/HeadingPanelContainer/GridContainer"]
+[node name="DateLabel" type="Label" parent="MainGameSectionsVBoxContainer/HeadingPanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Year 1 Day 1"
 horizontal_alignment = 2
 
-[node name="MainContentContainer" type="PanelContainer" parent="MarginContainer/MainGameSectionsVBoxContainer"]
-custom_minimum_size = Vector2(0, 300)
+[node name="HBoxContainer" type="HBoxContainer" parent="MainGameSectionsVBoxContainer"]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer"]
-layout_mode = 2
 alignment = 1
 
-[node name="ServicesContainer" type="GridContainer" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer"]
+[node name="ServicesContainer" type="PanelContainer" parent="MainGameSectionsVBoxContainer/HBoxContainer"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/h_separation = 15
+
+[node name="MarginContainer" type="MarginContainer" parent="MainGameSectionsVBoxContainer/HBoxContainer/ServicesContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="MainGameSectionsVBoxContainer/HBoxContainer/ServicesContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/v_separation = 24
 columns = 2
 
-[node name="Label" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer/ServicesContainer"]
+[node name="Label" type="Label" parent="MainGameSectionsVBoxContainer/HBoxContainer/ServicesContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
-text = "Wall phone repair"
+text = "Desk phone repair"
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer/ServicesContainer"]
+[node name="Label2" type="Label" parent="MainGameSectionsVBoxContainer/HBoxContainer/ServicesContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Wall phone repair"
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer/ServicesContainer"]
+[node name="Label3" type="Label" parent="MainGameSectionsVBoxContainer/HBoxContainer/ServicesContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Padded headrest"
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer/ServicesContainer"]
+[node name="AddServiceButton" type="Button" parent="MainGameSectionsVBoxContainer/HBoxContainer/ServicesContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 text = "Add new service"
 
-[node name="EmployeesContainer" type="GridContainer" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer"]
+[node name="EmployeesContainer" type="PanelContainer" parent="MainGameSectionsVBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainGameSectionsVBoxContainer/HBoxContainer/EmployeesContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="MainGameSectionsVBoxContainer/HBoxContainer/EmployeesContainer/MarginContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 24
 columns = 3
 
-[node name="Label" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer/EmployeesContainer"]
+[node name="Label" type="Label" parent="MainGameSectionsVBoxContainer/HBoxContainer/EmployeesContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Basic phone repairperson"
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer/EmployeesContainer"]
+[node name="Label2" type="Label" parent="MainGameSectionsVBoxContainer/HBoxContainer/EmployeesContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Cashier"
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer/EmployeesContainer"]
+[node name="Label3" type="Label" parent="MainGameSectionsVBoxContainer/HBoxContainer/EmployeesContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Store manager"
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/MainGameSectionsVBoxContainer/MainContentContainer/HBoxContainer/EmployeesContainer"]
+[node name="AddEmployeeButton" type="Button" parent="MainGameSectionsVBoxContainer/HBoxContainer/EmployeesContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Hire"
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Hire Employee"
 
-[node name="Label" type="Label" parent="MarginContainer/MainGameSectionsVBoxContainer"]
+[node name="TickerContainer" type="PanelContainer" parent="MainGameSectionsVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MainGameSectionsVBoxContainer/TickerContainer"]
 layout_mode = 2
 text = "This is the news ticker. . . . . . . . . This is the news ticker. . . . . . . . . This is the news"
 horizontal_alignment = 1

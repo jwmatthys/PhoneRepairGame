@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cbnwy6pgcl7xp"]
+
+[ext_resource type="FontFile" uid="uid://dq7eudfd21t1p" path="res://assets/Minecraftia-Regular.ttf" id="1_4jxu1"]
+
+[resource]
+default_font = ExtResource("1_4jxu1")
+default_font_size = 16
